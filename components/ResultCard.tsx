@@ -127,20 +127,40 @@ function ResultCard({
 }
 
 function LoadingResultCard() {
+  const numOfContactButtons = Math.floor(Math.random() * 3) + 3;
+  
+  const renderContactButtons : () => JSX.Element[] = function() {
+    var elements = [];
+
+    for (let index = 0; index < numOfContactButtons; index++) {
+      elements.push(
+        <Skeleton height={40} width={40} circle={true}/>
+      );
+    }
+
+    return elements;
+  }
+
   return (
-    <div
-      className={
-        "flex flex-col w-full max-w-3xl p-6 my-2 bg-white shadow-2xl rounded-xl border-l-8 border-gray-200"
-      }
-    >
-      <div className="text-lg uppercase">
-        <Skeleton />
+    <div className="flex flex-col w-full max-w-3xl gap-6 p-6 my-2 bg-white border-l-8 border-gray-200 shadow-2xl sm:flex-row rounded-xl">
+      <div className="">
+        <div className="w-48 h-48 overflow-hidden sm:w-44 sm:h-44">
+          <Skeleton height={192} width={192}/>
+        </div>
       </div>
-      <div className="text-2xl font-bold">
-        <Skeleton />
-      </div>
-      <div className="mt-4 text-lg">
-        <Skeleton />
+      <div className="flex flex-col flex-auto">
+        <div className="text-lg uppercase">
+          <Skeleton />
+        </div>
+        <div className="mt-4 text-3xl font-bold">
+          <Skeleton />
+        </div>
+        <div className="mt-1 text-lg">
+          <Skeleton />
+        </div>
+        <div className="flex flex-row flex-wrap gap-3 mt-6">
+          {renderContactButtons()}
+        </div>
       </div>
     </div>
   );
