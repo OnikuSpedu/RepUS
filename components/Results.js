@@ -18,7 +18,7 @@ function Results({ query }) {
 
     return (
         <div className="m-4 md:m-8">
-            {`${results.length} results`}
+            {query && query != "" && `${results.length} results`}
 
             {results.map((officialData) => (
                 <ResultCard {...officialData} />
