@@ -13,3 +13,8 @@ html {
     background-attachment: fixed;
     background-size: cover;
 }
+
+.fill-img {
+    object-fit: fill;
+}
+
