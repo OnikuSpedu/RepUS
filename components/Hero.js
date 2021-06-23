@@ -1,31 +1,16 @@
 import React from 'react'
-import { useForm } from "react-hook-form";
+import SearchBar from './SearchBar'
 
 function Hero({ setQuery }) {
     return (
-        <div className="px-4 md:px-8">
-            <div>
+        <div className="mx-4 mb-8 md:mx-8">
+            <div className="my-8 text-6xl font-bold leading-tight">
                 Find Your Elected Officials
             </div>
-            
-            <Searchbar setQuery={setQuery} />
+
+            <SearchBar setQuery={setQuery} />
         </div>
     )
 }
 
 export default Hero
-
-function Searchbar({ setQuery }) {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = ({query}) => {
-        setQuery(query)
-    };
-
-    return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input defaultValue="" {...register("query")} />
-
-            <button type="submit">Submit</button>
-        </form>
-    )
-}

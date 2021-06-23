@@ -9,7 +9,7 @@ function Results({ query }) {
         setResults([]);
 
         postData("/api/search", { query: query }).then((response) => {
-            if(response.success)
+            if (response.success)
                 setResults(response.data);
             console.log(response);
         });
@@ -17,12 +17,12 @@ function Results({ query }) {
     }, [query])
 
     return (
-        <div>
-          {`${results.length} results`}
-          
-          {results.map((officialData) => (
-              <ResultCard {...officialData}/>
-          ))}
+        <div className="m-4 md:m-8">
+            {`${results.length} results`}
+
+            {results.map((officialData) => (
+                <ResultCard {...officialData} />
+            ))}
         </div>
     )
 }

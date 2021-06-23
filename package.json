@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.1",
     "axios": "^0.21.1",
     "isomorphic-fetch": "^3.0.0",
     "next": "latest",

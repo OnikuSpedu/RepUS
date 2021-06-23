@@ -5,18 +5,18 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Results from '../components/Results'
 
-import {useState} from 'react'
+import { useState } from 'react'
 
 export default function Home() {
   const [query, setQuery] = useState("");
-  
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-img">
       <Head>
         <title>RepUS</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       {/* <Image
         alt="Mountains"
         src={bgImage}
@@ -29,13 +29,13 @@ export default function Home() {
       <main>
         <div>
           <Navbar />
-          <Hero setQuery={setQuery}/>
+          <Hero setQuery={setQuery} />
         </div>
         <div>
-          <Results query={query}/>
+          <Results query={query} />
         </div>
       </main>
-      
+
       {/* <main className="flex flex-col flex-auto lg:flex-row lg:flex-wrap">
         <div className="border border-gray-300 lg:max-w-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60">
           <Navbar />
