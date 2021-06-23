@@ -2,8 +2,24 @@ import React, { useEffect, useState } from 'react'
 import postData from '../utility/postData'
 import ResultCard from './ResultCard'
 
-function Results({ query }) {
-    const [results, setResults] = useState([]);
+interface ResultsProps {
+    query: string;
+}
+
+interface Result {
+    office: string,
+    name: string,
+    party: string,
+    photo?: string,
+    address?: object[],
+    urls?: string[],
+    channels?: object[],
+    emails?: string[],
+    phones?: string[]
+}
+
+function Results({ query } : ResultsProps) {
+    const [results, setResults] = useState<Result[]>([]);
 
     useEffect(() => {
         setResults([]);

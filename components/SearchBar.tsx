@@ -2,7 +2,11 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import { SearchIcon } from "@heroicons/react/outline";
 
-function SearchBar({ setQuery }) {
+interface SearchBarProps {
+    setQuery: (any) => any;
+}
+
+function SearchBar({ setQuery } : SearchBarProps) {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = ({ query }) => {
         setQuery(query)

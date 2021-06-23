@@ -8,7 +8,7 @@ import Results from '../components/Results'
 import { useState } from 'react'
 
 export default function Home() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState<string>("");
 
   return (
     <div className="flex flex-col min-h-screen bg-img">
