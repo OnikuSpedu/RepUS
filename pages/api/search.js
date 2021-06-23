@@ -5,7 +5,7 @@ export default async (req, res) => {
         const reqBody = JSON.parse(req.body);
 
         if (reqBody.query != null && reqBody.query != "") {
-            var officials = [reqBody.query]
+            var officials = []
 
             const response = await axios(`https://www.googleapis.com/civicinfo/v2/representatives?key=${process.env.API_KEY}&address=${reqBody.query}`);
             const data = response.data;
