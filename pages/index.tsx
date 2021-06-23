@@ -16,11 +16,11 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col flex-auto xl:flex-row lg:flex-wrap">
-        <div className="border border-gray-300 xl:max-w-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-6">
+        <div className={`${query == "" && "flex-auto"} border border-gray-300 xl:max-w-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-6`}>
           <Navbar />
           <Hero setQuery={setQuery} />
         </div>
-        <div className="flex-auto">
+        <div className={`${query == "" ? "hidden" : "flex-auto"}`}>
           <Results query={query} />
         </div>
       </main>
