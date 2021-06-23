@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import postData from "../utility/postData";
-import ResultCard from "./ResultCard";
+import { ResultCard, LoadingResultCard } from "./ResultCard";
+import Skeleton from "react-loading-skeleton";
 
 interface ResultsProps {
   query: string;
@@ -20,28 +21,63 @@ interface Result {
 
 function Results({ query }: ResultsProps) {
   const [results, setResults] = useState<Result[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    setResults([]);
+    setLoading(true);
 
-    postData("/api/search", { query: query }).then((response) => {
-      if (response.success) setResults(response.data);
-      console.log(response);
-    });
+    if (query != null && query != "") {
+      postData("/api/search", { query: query }).then((response) => {
+        if (response.success) setResults(response.data);
+        console.log(response);
+        setLoading(false);
+      });
+    } else {
+      setResults([]);
+      setLoading(false);
+    }
   }, [query]);
 
   return (
     <div className="m-4 md:m-8">
-      <div className="w-full max-w-3xl mx-auto">
-        {query && query != "" && `${results.length} results`}
-      </div>
+      {!loading ? (
+        <div className="w-full max-w-3xl mx-auto">
+          {query && query != "" && `${results.length} results`}
+        </div>
+      ) : (
+        <div className="w-full max-w-3xl mx-auto">
+          {query && query != "" && `Loading`}
+        </div>
+      )}
+
       <div className="flex flex-col items-center xl:items-start">
-        {results.map((officialData) => (
-          <ResultCard {...officialData} />
-        ))}
+        {loading ? (
+          <React.Fragment>
+            <LoadingResultCard />
+            <LoadingResultCard />
+            <LoadingResultCard />
+            <LoadingResultCard />
+            <LoadingResultCard />
+            <LoadingResultCard />
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            {results.map((officialData) => (
+              <ResultCard {...officialData} />
+            ))}
+          </React.Fragment>
+        )}
       </div>
     </div>
   );
+}
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
 }
 
 export default Results;
