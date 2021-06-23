@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import bgImage from '../public/bg.jpg'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Results from '../components/Results'
