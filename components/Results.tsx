@@ -7,6 +7,11 @@ interface ResultsProps {
   query: string;
 }
 
+interface Channel {
+  type: string;
+  id: string;
+}
+
 interface Result {
   office: string;
   name: string;
@@ -14,7 +19,7 @@ interface Result {
   photo?: string;
   address?: object[];
   urls?: string[];
-  channels?: object[];
+  channels?: Channel[];
   emails?: string[];
   phones?: string[];
 }
@@ -29,7 +34,8 @@ function Results({ query }: ResultsProps) {
     if (query != null && query != "") {
       postData("/api/search", { query: query }).then((response) => {
         if (response.success) setResults(response.data);
-        console.log(response);
+        else setResults([]);
+        
         setLoading(false);
       });
     } else {
