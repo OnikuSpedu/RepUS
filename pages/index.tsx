@@ -20,7 +20,7 @@ export default function Home() {
           <Navbar />
           <Hero setQuery={setQuery} />
         </div>
-        <div className={`${query == "" ? "hidden" : "flex-auto"}`}>
+        <div className={`${query == "" ? "hidden" : "flex-auto"} items-center xl:items-start`}>
           <Results query={query} />
         </div>
       </main>

@@ -7,8 +7,8 @@ interface HeroProps {
 
 function Hero({ setQuery } : HeroProps) {
     return (
-        <div className="flex flex-col mx-4 mb-8 md:mx-8">
-            <div className="my-8 text-6xl font-bold md:leading-snug md:mb-14">
+        <div className="flex flex-col items-center mx-4 mb-8 xl:items-start xl:justify-start md:mx-8">
+            <div className="items-center my-8 text-6xl font-bold md:leading-snug md:mb-14">
                 Find Your Elected Officials
             </div>
 
