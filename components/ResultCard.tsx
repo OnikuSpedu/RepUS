@@ -27,7 +27,7 @@ function ResultCard({
 }: ResultCardProps) {
   return (
     <div
-      className={`flex flex-col md:flex-row w-full max-w-3xl p-6 my-2 bg-white shadow-2xl rounded-xl border-l-8 ${
+      className={`flex flex-col gap-6 md:flex-row w-full max-w-3xl p-6 my-2 bg-white shadow-2xl rounded-xl border-l-8 ${
         party == "Democratic Party" && "border-blue-500"
       } ${party == "Republican Party" && "border-red-500"} ${
         party != "Republican Party" &&
@@ -35,7 +35,7 @@ function ResultCard({
         "border-gray-200"
       }`}
     >
-      <div className="mr-6">
+      <div className="">
         <div className="overflow-hidden w-36 h-36 square">
           <img
             src={photo ? photo : "/person-placeholder.jpg"}

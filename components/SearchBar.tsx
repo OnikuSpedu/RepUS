@@ -13,7 +13,7 @@ function SearchBar({ setQuery } : SearchBarProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-row w-full max-w-3xl shadow-2xl rounded-xl focus-within:ring-blue-500 focus-within:ring-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-row w-full max-w-3xl my-6 shadow-2xl rounded-xl focus-within:ring-blue-500 focus-within:ring-2">
             <input defaultValue="" {...register("query")} className="flex-auto min-w-0 p-2 px-4 focus:outline-none rounded-l-xl" placeholder="Your address..."/>
 
             <button type="submit" className="p-3 text-white bg-blue-600 focus:outline-none rounded-r-xl focus:ring-2 focus:ring-black hover:bg-blue-700">

@@ -40,15 +40,13 @@ function Results({ query }: ResultsProps) {
 
   return (
     <div className="m-4 md:m-8">
-      {!loading ? (
-        <div className="w-full max-w-3xl mx-auto">
-          {query && query != "" && `${results.length} results`}
-        </div>
-      ) : (
-        <div className="w-full max-w-3xl mx-auto">
-          {query && query != "" && `Loading`}
-        </div>
-      )}
+      <div className="w-full max-w-3xl mx-auto font-semibold uppercase">
+        {!loading ? (
+          <span>{query && query != "" && `${results.length} results`}</span>
+        ) : (
+          <span>{query && query != "" && `Loading`}</span>
+        )}
+      </div>
 
       <div className="flex flex-col items-center xl:items-start">
         {loading ? (
