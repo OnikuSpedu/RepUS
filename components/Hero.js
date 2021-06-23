@@ -3,8 +3,8 @@ import SearchBar from './SearchBar'
 
 function Hero({ setQuery }) {
     return (
-        <div className="mx-4 mb-8 md:mx-8">
-            <div className="my-8 text-6xl font-bold leading-tight">
+        <div className="flex flex-col mx-4 mb-8 md:mx-8">
+            <div className="my-8 text-6xl font-bold leading-snug md:mb-14">
                 Find Your Elected Officials
             </div>
 

@@ -17,40 +17,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <Image
-        alt="Mountains"
-        src={bgImage}
-        layout="fill"
-        objectFit="cover"
-        className="-z-1"
-        quality={100}
-      /> */}
-
-      <main>
-        <div>
+      <main className="flex flex-col flex-auto xl:flex-row lg:flex-wrap">
+        <div className="border border-gray-300 xl:max-w-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-6">
           <Navbar />
           <Hero setQuery={setQuery} />
         </div>
-        <div>
+        <div className="flex-auto">
           <Results query={query} />
         </div>
       </main>
-
-      {/* <main className="flex flex-col flex-auto lg:flex-row lg:flex-wrap">
-        <div className="border border-gray-300 lg:max-w-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60">
-          <Navbar />
-          <div className="flex items-center flex-auto p-4 text-6xl font-bold leading-snug">
-            Find Your Elected Officials
-          </div>
-
-          <form>
-            
-          </form>
-        </div>
-        <div className="flex-auto">
-          Hello
-        </div>
-      </main> */}
     </div>
   )
 }
